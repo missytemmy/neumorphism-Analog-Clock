@@ -1,0 +1,161 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: poppins, sans-serif;
+    transition: .1s;
+}
+
+:root {
+    --shadow: 4px 4px 6px #00000066,
+        -4px -4px 6px #fff;
+    --shadow-ins: inset 4px 4px 6px #00000066,
+        inset -4px -4px 6px #fff;
+    --bg-col: #ebf2ff;
+}
+
+body {
+    min-height: 100vh;
+    background-color: var(--bg-col);
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+.clock {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    background-color: var(--bg-col);
+    border-radius: 50%;
+    box-shadow: var(--shadow);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.clock::before {
+    position: absolute;
+    content: '';
+    inset: 25px;
+    background-color: var(--bg-col);
+    box-shadow: var(--shadow-ins);
+    border-radius: 50%;
+}
+
+.clock::after {
+    position: absolute;
+    content: '';
+    inset: 85px;
+    background-color: var(--bg-col);
+    box-shadow: var(--shadow);
+    border-radius: 50%;
+}
+
+.clock .num {
+    inset: 30px;
+    position: absolute;
+    text-align: center;
+    transform: rotate(calc(30deg * var(--i)));
+}
+
+.clock .num b {
+    font-size: 1.5rem;
+    color: #0f1f328b;
+    display: inline-block;
+    transform: rotate(calc(-30deg * var(--i)));
+
+}
+
+.clock .num b.active {
+    color: #4196ff;
+    font-size: 2.5rem;
+}
+
+.clock .dot {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: var(--bg-col);
+    box-shadow: var(--shadow);
+    z-index: 100;
+    border-radius: 50%;
+}
+
+.clock .circle {
+    position: absolute;
+    border: 2px solid var(--clr);
+    inset: 100px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    z-index: 20;
+}
+.circle.circle2{
+    inset: 120px;
+    z-index: 19;
+}
+.circle.circle3{
+    z-index: 18;
+    inset: 140px;
+}
+.circle i{
+    position: absolute;
+    background-color: var(--clr);
+    height: 50%;
+    width: 10px;
+    z-index: 15;
+    transform-origin: bottom;
+    transform: scaleY(0.65);
+    /* opacity: 0.5; */
+    box-shadow: 0 50px var(--clr);
+    border-radius: 20px;
+}
+.circle2 i{
+    width: 6px;
+}
+.circle3 i{
+    width: 4px;
+}
+.circle::before{
+    position: absolute;
+    content: '';
+    width: 15px;
+    height: 15px;
+    background-color: var(--clr);
+    top: -7.5px;
+    border-radius: 50px;
+    box-shadow: 0 0 10px var(--clr);
+}
+
+
+.word{
+    position: absolute;
+    z-index: 11;
+    margin-top: 100px;
+    padding: 5px 15px;
+    box-shadow: inset 4px 4px 2px #00000010,
+                      4px 4px 4px #fff,
+                      -4px -4px 4px #fff;
+    border-radius: 20px;
+}
+.word p{
+    font-weight: 900;
+    font-size: 20px;
+    color: #0256fd79;
+}
+
+@media screen and (max-width: 950px) {
+    .container{
+        width: 100%;
+        height: 100vh;
+    }
+    .clock{
+        transform: scale(0.8);
+    }
+}
